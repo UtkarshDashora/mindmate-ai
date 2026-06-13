@@ -104,8 +104,8 @@ Respond with ONLY valid JSON, no markdown fences.`;
         wellness_score: (parsed.wellness_score as number) ?? null,
         summary: (parsed.summary as string) ?? null,
         encouragement: (parsed.encouragement as string) ?? null,
-        recommendations: parsed.recommendations ?? [],
-        mindfulness_exercise: parsed.mindfulness_exercise ?? null,
+        recommendations: (parsed.recommendations ?? []) as never,
+        mindfulness_exercise: (parsed.mindfulness_exercise ?? null) as never,
         safety_alert: Boolean(parsed.safety_alert),
       })
       .select()
